@@ -3,7 +3,7 @@
 
 #include <string>
 #include <sys/types.h>
-#include "interface.h"
+#include "interface.hpp"
 
 
 struct rx_stat{
@@ -56,8 +56,6 @@ private:
     int set_nbins(unsigned int nbins);
     int set_window(unsigned int window);
     int set_port(uint16_t portno);
-    int delete_rx();
-    int add_rx(std::string mode);
 
 public:
     USRPD_rx(
@@ -76,6 +74,8 @@ public:
     int switch_freq(double freq);
     struct rx_stat get_status();
     int recv_data(void *buffer, size_t length);
+    int delete_rx();
+    int add_rx(std::string mode);
 };
 
 class USRPD_tx : public USRPD {
